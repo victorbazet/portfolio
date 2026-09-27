@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Dark navy / charcoal base with an off-white foreground. */
+  --color-ink-950: #080d14;
+  --color-ink-900: #0d1521;
+  --color-ink-850: #111c2b;
+  --color-ink-800: #162334;
+  --color-ink-700: #1e2c3f;
+  --color-ink-600: #2b3b50;
+
+  --color-paper: #f4f5f7;
+  --color-paper-muted: #a8b3c1;
+  --color-paper-faint: #7b8798;
+
+  --color-accent: #7fa8d4;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Inter, Helvetica, Arial,
+    sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Offset anchor targets so the sticky nav doesn't cover section headings. */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-ink-900);
+  color: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

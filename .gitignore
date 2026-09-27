@@ -1,0 +1,12 @@
+node_modules
+dist
+.DS_Store
+*.local
+.vite
+
+# PDF d'origine, conservés en local uniquement.
+# Les versions servies par le site sont dans public/documents/
+pdf-originaux/
+
+# Photo source d'origine ; la version recadrée servie est public/images/
+victor.jpg
