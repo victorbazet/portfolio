@@ -23,11 +23,12 @@ export const profile = {
 }
 
 export const nav = [
-  { label: 'About', href: '#about' },
-  { label: 'Shuren', href: '#shuren' },
-  { label: 'Academic Work', href: '#work' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
+  { key: 'about', href: '#about' },
+  { key: 'shuren', href: '#shuren' },
+  { key: 'experience', href: '#experience' },
+  { key: 'work', href: '#work' },
+  { key: 'skills', href: '#skills' },
+  { key: 'contact', href: '#contact' },
 ]
 
 export const about = {
@@ -56,6 +57,18 @@ export const shuren = {
   ],
   stack: ['Claude API', 'Make', 'n8n', 'Cloudflare Pages', 'Stripe'],
 }
+
+/**
+ * Work experience, newest first.
+ * Localised role titles, dates, locations, and bullet points live in `copy` below,
+ * in the same order as this array.
+ */
+export const experience = [
+  {
+    id: 'gerard-bertrand',
+    company: 'Groupe Gérard Bertrand — Château l’Hospitalet',
+  },
+]
 
 /**
  * Academic work. Each item:
@@ -161,4 +174,31 @@ export const skills = [
 export const contact = {
   heading: 'Get in touch',
   note: 'Open to summer 2027 internship opportunities in finance and AI.',
+}
+
+export const copy = {
+  en: {
+    nav: { about: 'About', shuren: 'Shuren', experience: 'Experience', work: 'Academic Work', skills: 'Skills', contact: 'Contact' },
+    menu: 'Menu', close: 'Close', sections: 'Sections', language: 'Language',
+    hero: { email: 'Email me', resume: 'Download resume', intro: profile.intro, location: profile.location },
+    ask: { title: 'Ask my AI', label: 'Ask a question about Victor', placeholder: 'Ask a question about me…', send: 'Send question', reset: 'Clear', limit: 'Question limit reached. Email me to keep talking.', disclaimer: 'Answers are AI-generated and may contain mistakes: email me to confirm anything important.', suggestions: ['What does Shuren actually do?', 'What did he do at Gérard Bertrand?', 'Why finance and AI?'], errors: { not_configured: 'The assistant is offline right now. Email me instead.', rate_limited: 'Too many questions in a short time. Try again in a few minutes.', default: 'Something went wrong on my side. Try again, or email me.' } },
+    about: { eyebrow: 'About', title: 'Finance, with a build-it habit', facts: ['University', 'Major', 'Honors', 'Based in'], paragraphs: about.paragraphs, values: about.facts.map((fact) => fact.value) },
+    shuren: { eyebrow: 'Featured project', stack: 'Stack', visit: 'Visit shuren.fr', summary: shuren.summary, highlights: shuren.highlights },
+    experience: { eyebrow: 'Experience', title: 'Where I have worked', roles: ['Finance Intern, Assistant to the General Manager'], locations: ['Narbonne, France'], dates: ['June – July 2026'], points: [['Assisted the General Manager with day-to-day finance operations, including cash flow monitoring and budget analysis for the property.', 'Tracked and reported on treasury, reconciling daily cash positions across departments.', 'Supported budget analysis by compiling and checking expense data against departmental budgets.', 'Prepared summary reports and dashboards for the General Manager to support operational decision-making.']] },
+    work: { eyebrow: 'Academic work', title: 'Selected coursework and writing', intro: 'Marketing plans, equity valuations, and essays written at The College of New Jersey. Every document opens as a PDF.', view: 'View PDF', categories: ['Marketing & Strategy', 'Finance & Valuation', 'Essays'], blurbs: academicWork.map((category) => category.blurb), descriptions: academicWork.map((category) => category.items.map((item) => item.description)) },
+    skills: { eyebrow: 'Skills', title: 'What I work with', groups: ['Finance', 'Technical', 'Languages'], items: skills.map((group) => group.items) },
+    contact: { eyebrow: 'Contact', heading: 'Get in touch', note: 'Open to summer 2027 internship opportunities in finance and AI.' },
+  },
+  fr: {
+    nav: { about: 'À propos', shuren: 'Shuren', experience: 'Expérience', work: 'Travaux universitaires', skills: 'Compétences', contact: 'Contact' },
+    menu: 'Menu', close: 'Fermer', sections: 'Navigation', language: 'Langue',
+    hero: { email: 'Me contacter', resume: 'Télécharger mon CV', intro: 'Étudiant en finance au College of New Jersey et fondateur de Shuren, où je crée et commercialise des agents IA pour les petites entreprises. Je travaille à l’intersection de l’analyse financière et de l’automatisation concrète.', location: 'À Ewing, New Jersey, aux États-Unis, et à Narbonne, en France' },
+    ask: { title: 'Interroger mon IA', label: 'Poser une question sur Victor', placeholder: 'Posez-moi une question…', send: 'Envoyer la question', reset: 'Effacer', limit: 'Limite de questions atteinte. Écrivez-moi pour continuer.', disclaimer: 'Les réponses sont générées par IA et peuvent contenir des erreurs : écrivez-moi pour confirmer un point important.', suggestions: ['Que fait concrètement Shuren ?', 'Qu’a-t-il fait chez Gérard Bertrand ?', 'Pourquoi la finance et l’IA ?'], errors: { not_configured: 'L’assistant est hors ligne pour le moment. Écrivez-moi plutôt.', rate_limited: 'Trop de questions en peu de temps. Réessayez dans quelques minutes.', default: 'Une erreur est survenue de mon côté. Réessayez ou écrivez-moi.' } },
+    about: { eyebrow: 'À propos', title: 'La finance, avec le réflexe de construire', facts: ['Université', 'Spécialisation', 'Distinctions', 'Basé entre'], values: ['The College of New Jersey', 'Finance, B.S. — promotion 2027', 'Dean’s List, automne 2024 – printemps 2026', 'Ewing, NJ · Narbonne, France'], paragraphs: ['J’ai quitté la France pour les États-Unis lors de ma dernière année de lycée, puis j’y suis resté pour mes études. Je suis aujourd’hui en dernière année au College of New Jersey, où j’étudie la finance. Je figure au Dean’s List chaque semestre depuis l’automne 2024 et serai diplômé en mai 2027.', 'En parallèle de mes études, j’ai fondé Shuren, une agence qui développe des agents IA pour les petites entreprises — surtout des hôtels et des restaurants — afin d’automatiser les tâches répétitives qui encombrent leur quotidien. Lancer l’activité m’a autant appris sur les prix, les clients et les opérations que mes cours.', 'Ce qui m’intéresse le plus est l’intersection de la finance et de l’IA : utiliser des modèles et l’automatisation pour rendre l’analyse plus rapide et plus pertinente, pas simplement plus bruyante. Je recherche actuellement un stage d’été 2027 dans un rôle quantitatif ou financier.'] },
+    shuren: { eyebrow: 'Projet à la une', stack: 'Technologies', visit: 'Visiter shuren.fr', summary: 'Une agence d’agents IA pour les petites entreprises. Shuren conçoit, déploie et maintient des automatisations pour les hôtels et les restaurants : réservations, messages aux clients, réponses aux avis et tâches administratives qui seraient autrement effectuées à la main.', highlights: ['Conception et commercialisation d’agents auprès d’hôtels et de restaurants, du premier échange jusqu’au déploiement et au suivi.', 'Les agents s’appuient sur l’API Claude, orchestrée avec Make et n8n, afin que les clients continuent à travailler dans leurs outils habituels.', 'Gestion de l’ensemble de l’activité : produit, tarification, acquisition clients, facturation et réalisation.'] },
+    experience: { eyebrow: 'Expérience', title: 'Mon parcours professionnel', roles: ['Stagiaire finance, assistant du directeur général'], locations: ['Narbonne, France'], dates: ['Juin – juillet 2026'], points: [['Assistance du directeur général sur les opérations financières quotidiennes, dont le suivi de trésorerie et l’analyse budgétaire du domaine.', 'Suivi et reporting de la trésorerie, avec rapprochement quotidien des positions de caisse de chaque service.', 'Participation à l’analyse budgétaire : consolidation et contrôle des dépenses au regard des budgets par service.', 'Préparation de rapports de synthèse et de tableaux de bord destinés au directeur général pour éclairer les décisions opérationnelles.']] },
+    work: { eyebrow: 'Travaux universitaires', title: 'Une sélection de projets et de travaux', intro: 'Plans marketing, valorisations boursières et essais écrits au College of New Jersey. Chaque document s’ouvre en PDF.', view: 'Voir le PDF', categories: ['Marketing & stratégie', 'Finance & valorisation', 'Essais'], blurbs: ['Stratégies de marque et plans de mise sur le marché élaborés autour de campagnes et de produits réels.', 'Analyses d’entreprises et valorisations boursières fondées sur les états financiers.', 'Réflexions sur les liens entre finance, technologie et droit.'], descriptions: [['Un plan de partenariat entre trois marques pour positionner Juan Soto auprès des publics du sport de haut niveau et du streetwear.', 'Un plan marketing de marque personnelle pour David Ortiz, couvrant la segmentation, le positionnement et l’activation.', 'Une campagne de lancement utilisant des showrooms en réalité virtuelle afin de toucher les acheteurs au-delà des concessions traditionnelles.'], ['Analyse complète de Nike : étude des états financiers, sociétés comparables et estimation de la valeur intrinsèque.', 'Valorisation de Coca-Cola, avec une analyse de la stabilité des marges, de la structure du capital et de la pérennité du dividende.'], ['Les échecs juridiques et éthiques à l’origine de l’effondrement de FTX et ce qu’ils révèlent sur la gouvernance des marchés crypto.', 'Comment l’IA transforme le travail professionnel dans les affaires et le droit, ainsi que les limites de l’automatisation.', 'Un argumentaire sur les raisons pour lesquelles les monnaies numériques pourraient remplacer une partie des devises traditionnelles, et les conditions nécessaires.']] },
+    skills: { eyebrow: 'Compétences', title: 'Mes domaines de travail', groups: ['Finance', 'Technique', 'Langues'], items: [['Analyse financière', 'Valorisation boursière', 'Modélisation financière', 'Analyse des sociétés comparables'], ['Python', 'SQL', 'R', 'JavaScript', 'API Claude', 'Make', 'n8n', 'Excel', 'PowerPoint'], ['Français — langue maternelle', 'Anglais — bilingue', 'Espagnol — intermédiaire']] },
+    contact: { eyebrow: 'Contact', heading: 'Restons en contact', note: 'À la recherche d’un stage d’été 2027 en finance ou en IA.' },
+  },
 }

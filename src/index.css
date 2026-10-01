@@ -27,9 +27,16 @@ html {
 }
 
 body {
-  background-color: var(--color-ink-900);
+  background:
+    radial-gradient(circle at 80% -10%, rgba(127, 168, 212, 0.11), transparent 26rem),
+    var(--color-ink-900);
   color: var(--color-paper);
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(127, 168, 212, 0.35);
+  color: var(--color-paper);
 }
 
 @media (prefers-reduced-motion: reduce) {

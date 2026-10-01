@@ -1,18 +1,18 @@
 import { contact, profile, shuren } from '../data/content.js'
 
-export default function Footer() {
+export default function Footer({ text }) {
   return (
-    <footer id="contact" className="border-t border-ink-700/60 px-6 py-20 sm:px-8 sm:py-24">
+    <footer id="contact" className="relative z-10 border-t border-ink-700/60 px-6 py-14 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-5xl">
         <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-paper-faint">
-          Contact
+          {text.contact.eyebrow}
         </p>
 
         <h2 className="text-2xl font-semibold tracking-tight text-paper sm:text-3xl">
-          {contact.heading}
+          {text.contact.heading}
         </h2>
 
-        <p className="mt-4 max-w-xl leading-relaxed text-paper-muted">{contact.note}</p>
+        <p className="mt-4 max-w-xl leading-relaxed text-paper-muted">{text.contact.note}</p>
 
         <a
           href={`mailto:${profile.email}`}
