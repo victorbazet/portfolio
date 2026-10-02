@@ -32,7 +32,7 @@ console.log(`${keys.length} question(s)\n`)
 for (const key of keys) {
   const raw = values[key]
   if (!raw) continue
-  const { at, question, country } = typeof raw === 'string' ? JSON.parse(raw) : raw
+  const { at, question, country, onTopic } = typeof raw === 'string' ? JSON.parse(raw) : raw
   const when = new Date(at).toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })
-  console.log(`${when}${country ? ` [${country}]` : ''}  ${question}`)
+  console.log(`${when}${country ? ` [${country}]` : ''}${onTopic === false ? ' [hors sujet]' : ''}  ${question}`)
 }
