@@ -1,0 +1,8 @@
+name = "victor-bazet-braun"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+# Every question asked to the AI assistant is stored here (see functions/api/ask.js).
+[[kv_namespaces]]
+binding = "QUESTIONS"
+id = "827277f0655247149e5e682cc4db9c68"

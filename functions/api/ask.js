@@ -69,7 +69,19 @@ function sanitizeMessages(raw) {
   return clean
 }
 
-export async function onRequestPost({ request, env }) {
+// Stores the visitor's question so I can see what people want to know. No IP, no identity:
+// just the text, the time, and the country. Keys sort chronologically; entries expire after a year.
+function logQuestion(env, request, question) {
+  if (!env.QUESTIONS) return Promise.resolve()
+  const at = new Date().toISOString()
+  const key = `q:${at}:${crypto.randomUUID().slice(0, 8)}`
+  const value = JSON.stringify({ at, question, country: request.cf?.country ?? null })
+  return env.QUESTIONS.put(key, value, { expirationTtl: 60 * 60 * 24 * 365 }).catch((error) =>
+    console.error('Question log error', error?.message),
+  )
+}
+
+export async function onRequestPost({ request, env, waitUntil }) {
   if (!env.ANTHROPIC_API_KEY) return json({ error: 'not_configured' }, 503)
   if (!isAllowedOrigin(request.headers.get('origin'))) return json({ error: 'forbidden' }, 403)
 
@@ -85,6 +97,8 @@ export async function onRequestPost({ request, env }) {
 
   const messages = sanitizeMessages(body?.messages)
   if (!messages) return json({ error: 'bad_request' }, 400)
+
+  waitUntil(logQuestion(env, request, messages[messages.length - 1].content))
 
   const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY })
   const stream = client.messages.stream({
