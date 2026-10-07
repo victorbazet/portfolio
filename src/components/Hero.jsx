@@ -1,6 +1,9 @@
 import { profile } from '../data/content.js'
 import AskAI from './AskAI.jsx'
 
+const linkedin = profile.links.find((link) => link.label === 'LinkedIn')
+const otherLinks = profile.links.filter((link) => link !== linkedin)
+
 export default function Hero({ text }) {
   return (
     <section id="top" className="relative px-6 pb-16 pt-20 sm:px-8 sm:pb-20 sm:pt-24">
@@ -13,6 +16,15 @@ export default function Hero({ text }) {
         <h1 className="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-paper sm:text-6xl lg:text-7xl">
           {profile.name}
         </h1>
+
+        <a
+          href={linkedin.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 rounded-md border border-ink-600 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:border-paper-faint hover:bg-ink-850"
+        >
+          {linkedin.label}
+        </a>
 
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-paper-muted sm:text-lg">
           {text.hero.intro}
@@ -39,7 +51,7 @@ export default function Hero({ text }) {
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-paper-faint">
           <span>{text.hero.location}</span>
-          {profile.links.map((link) => (
+          {otherLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
